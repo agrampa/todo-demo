@@ -18,7 +18,6 @@ app.get('/', (req, res) => res.send('Testing 1, 2, 3'));
 
 app.get('/tasks', (req, res) => {
   client.query(`SELECT * from tasks;`)
-    // .then(console.log('result.rows', res.rows))
     .then(results => res.send(results.rows))
     .catch(console.error);
 });
