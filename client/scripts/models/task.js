@@ -1,6 +1,6 @@
 'use strict';
 
-var app = {};
+var app = app || {};
 var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
@@ -20,7 +20,7 @@ var __API_URL__ = 'http://localhost:3000';
   Task.all = [];
 
   Task.loadAll = rows => {
-   Task.all = rows.sort((a, b) => b.title - a.title).map(task => new Task(task));
+   Task.all = rows.map(task => new Task(task));
   }
 
   Task.fetchAll = callback =>
